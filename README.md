@@ -5,7 +5,7 @@ Example usage for the crrri package for R for headless Chrome web scraping.
 ***Please note: This is not a working demo, it is example code mainly for you to read through.
 Below are descriptions explaining the main parts of the code.***
 
-### Installing crrri
+## Installing crrri
 Crrri enables web scraping with a headless chrome. The main advantage of using a headless browser is that it is less likely to be detected as a bot and also enables javascript rendered content.
 
 To install crrri in R, run:
@@ -13,6 +13,7 @@ To install crrri in R, run:
 devtools::install_github('rlesur/crrri')
 ```
 
+## Code Explanation
 ### Importing Packages
 - The `promises` package is used to create a promise for javascript operations.
 - The `crrri` package is the main package we will use to do headless Chrome.
@@ -53,7 +54,7 @@ Since scraping for 1 keyword is a promise, we just need to go through all keywor
 Then we check to only using chaining if there are more than 1 keyword we want to scrape.
 
 ### Post Processing
-Then when the chained promises completes and reaches it's end, we close the headless Chrome, clean up the data, and outputs into a csv file.
+Then when the chained promises completes and reaches its end, we close the headless Chrome, clean up the data, and outputs into a csv file.
 
 ## License
 
