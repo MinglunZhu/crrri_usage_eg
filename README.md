@@ -48,7 +48,7 @@ The third function utilizes the first 2 functions to get parsed data and saves i
 ### Chaining Scrape
 The above operations scrapes for 1 keyword and outputs 1 row of data. If we want to scrape for multiple keywords at the same time, we'd have to open multiple headless Chromes. Since the website requires a login, multiple logins may not be allow. So, instead, we chain the scraping of each keyword 1 after another.
 
-Since scraping for 1 keyword is a promises, we just need to go through all keywords we want to scrape and create a promise for each and chain them together by using `Reduce()`.
+Since scraping for 1 keyword is a promise, we just need to go through all keywords we want to scrape and create a promise for each and chain them together by using `Reduce()`.
 
 Then we check to only using chaining if there are more than 1 keyword we want to scrape.
 
