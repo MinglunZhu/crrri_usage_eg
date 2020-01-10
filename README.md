@@ -14,10 +14,10 @@ devtools::install_github('rlesur/crrri')
 ```
 
 ### Importing Packages
-The `promises` package is used to create a promise for javascript operations.
-The `crrri` package is the main package we will use to do headless Chrome.
-The `rvest` package is used to parse HTML. We could also use Javascript, but using R code is better since it will run synchronously.
-The `dplyr` package is just a must have package I use for all my code.
+- The `promises` package is used to create a promise for javascript operations.
+- The `crrri` package is the main package we will use to do headless Chrome.
+- The `rvest` package is used to parse HTML. We could also use Javascript, but using R code is better since it will run synchronously.
+- The `dplyr` package is just a must have package I use for all my code.
 
 ### Constants
 Then we define constants including urls needed for scraping, the element IDs for the elements we want to scrape and column names for the result dataframe.
@@ -36,7 +36,7 @@ I won't go into detail here since it's page specific. Depend on the page you are
 
 The gist of the first function is that it navigates to the target url, waits for page to load, then retreives the result HTML using a JavaScript expresssion, then parses the said HTML using `rvest`.
 
-The gist of the second function is that it navigates to the target url, waits for page to load, then do some further navigation using JavaScript's dispatching click events. This is due to the target content being an iFrame which must be loaded from within the page. Then the JavaScript creates a promise for the load event of the said iFrame. Once the iFrame is loaded, the JavaScript performs a search from within the iFrame and waits, in the form of a promise, for the iFrame to refresh itself due to the search. Then it sets a varible to true to indicate the search result is available.
+The gist of the second function is that it navigates to the target url, waits for page to load, then do some further navigation using JavaScript's dispatching click events. This is due to the target content being an iFrame which must be loaded from within the page. Then the JavaScript creates a promise for the load event of the said iFrame. Once the iFrame is loaded, the JavaScript performs a search from within the iFrame and waits, in the form of a promise, for the iFrame to refresh itself due to the search. Then it sets a variable to true to indicate the search result is available.
 
 Then we create a promise in R and uses the `later` package to check every 1 second to see if result is available and only fullfill the promise if result is available. Apprarently there is a better way to do it using some crrri operations, but I haven't figured that out, yet.
 
